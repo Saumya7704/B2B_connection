@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 export const Login = () => {
 
     const navigate = useNavigate();
-
     const { register, handleSubmit } = useForm();
     // const submitHandler = async (data) => {
     //     //console.log(data);
@@ -26,6 +25,8 @@ export const Login = () => {
     //         alert("Login Failed")
     //     }
     // }
+
+
 
     const submitHandler = async (data) => {
         try {
@@ -81,6 +82,10 @@ export const Login = () => {
                     </div>
                     <div>
                         <button type="submit" className="btn w-100 text-white" style={{ background: "linear-gradient(135deg, #6a11cb, #2575fc)", border: "none" }}>Submit</button>
+                    </div>
+
+                    <div className="text-center mt-2">
+                        <a href="ForgotPassword" className="text-primary">Forgot Password?</a>
                     </div>
                 </form>
                 <div className="text-center text-muted mt-3">

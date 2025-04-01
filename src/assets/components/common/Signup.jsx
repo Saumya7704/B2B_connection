@@ -58,7 +58,7 @@ return (
                         <label htmlFor="userRadio">User</label>
 
                     </div>
-                    <div className='flex items-center space-x-1' style={{position:"absolute","left":"800px",top:"133px"}}>
+                    <div className='flex items-center space-x-1' style={{position:"absolute","left":"800px",top:"173px"}}>
                         <input
                             type="radio"
                             id="vendorRadio"
@@ -138,7 +138,7 @@ return (
                       {...register("terms", { required: true })}
                       className={errors.terms ? "border-red-500" : ""}
                           />
-                          <label htmlFor="terms" className="text-sm" style={{position:"absolute",bottom:"123px",left:"610px"}}>
+                          <label htmlFor="terms" className="text-sm" style={{position:"absolute",bottom:"160px",left:"700px"}}>
                               I agree to the <a href="#" className="text-blue-500 hover:underline">terms and conditions</a>
                           </label>
                           {errors.terms && <p className="text-red-500 text-sm">You must agree to the terms</p>}

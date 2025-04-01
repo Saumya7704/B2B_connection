@@ -201,7 +201,6 @@ export const VendorNavbar = ({ toggleSidebar }) => {
                                 className="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"
                             >
-                                <span className="d-none d-md-inline"> Add Employee |</span>
                                 <a href='/Login'> Login | </a>
                                 <a href='/Signup'> Signup </a>
 

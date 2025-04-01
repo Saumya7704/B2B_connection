@@ -1,25 +1,24 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
 //import './App.css'
-import "./assets/css/adminlte.css"
-import "./assets/css/adminlte.min.css"
-import { Route, Routes, useLocation } from 'react-router-dom'
-import { UserSidebar } from './assets/components/layout/UserSidebar'
-import { Signup } from './assets/components/common/signup'
-import { Login } from './assets/components/common/login'
-import axios from 'axios'
-// import { VendorSidebar } from './assets/components/vendor/VendorSidebar'
-import { VendorSidebar } from './assets/components/vendor/vendorSidebar'
-import { AddProduct } from './assets/components/vendor/AddProduct'
-import { AddProductWithFile } from './assets/components/vendor/AddProductWithFile'
-import PrivateRoutes from './assets/components/hooks/PrivateRoutes'
-import LandingPage from "./assets/components/common/LandingPage"
-
+import "./assets/css/adminlte.css";
+import "./assets/css/adminlte.min.css";
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { UserSidebar } from './assets/components/layout/UserSidebar';
+import { Signup } from './assets/components/common/signup';
+import { Login } from './assets/components/common/login';
+import axios from 'axios';
+import { VendorSidebar } from './assets/components/vendor/vendorSidebar';
+import { AddProduct } from './assets/components/vendor/AddProduct';
+import { AddProductWithFile } from './assets/components/vendor/AddProductWithFile';
+import PrivateRoutes from './assets/components/hooks/PrivateRoutes';
+import LandingPage from "./assets/components/common/LandingPage";
+import { ResetPassword } from './assets/components/common/ResetPassword';
+import ViewProduct from './assets/components/vendor/ViewProduct';
 
 function App() {
-  axios.defaults.baseURL = "http://localhost:3000"
-  // const [count, setCount] = useState(0)
+  axios.defaults.baseURL = "http://localhost:3000";
 
   const location = useLocation();
 
@@ -32,31 +31,27 @@ function App() {
     }
   }, [location.pathname]);
 
-
   return (
     <div className={location.pathname === "/Login" || location.pathname === "/Signup" ? "" : "app-wrapper"}>
       <Routes>
-
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/' element={<LandingPage />}></Route>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='resetpassword/:token' element={<ResetPassword />} />
 
         <Route element={<PrivateRoutes />}>
-
-          {/* <Route path='/admin' element={<h1>Admin COMPONENT</h1>}></Route> */}
-
           <Route path='/vendor' element={<VendorSidebar />}>
             <Route path='addproduct' element={<AddProduct />} />
             <Route path='addproductwithfile' element={<AddProductWithFile />} />
+            <Route path='viewproduct' element={<ViewProduct />} />
           </Route>
 
           <Route path='/user' element={<UserSidebar />}>
           </Route>
         </Route>
       </Routes>
-    </div >
-
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
