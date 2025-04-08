@@ -13,9 +13,12 @@ import { VendorSidebar } from './assets/components/vendor/vendorSidebar';
 import { AddProduct } from './assets/components/vendor/AddProduct';
 import { AddProductWithFile } from './assets/components/vendor/AddProductWithFile';
 import PrivateRoutes from './assets/components/hooks/PrivateRoutes';
-import LandingPage from "./assets/components/common/LandingPage";
+// import LandingPage from "./assets/components/common/LandingPage";
 import { ResetPassword } from './assets/components/common/ResetPassword';
 import ViewProduct from './assets/components/vendor/ViewProduct';
+import UpdateProduct from './assets/components/vendor/UpdateProduct';
+import DeleteProduct from './assets/components/vendor/DeleteProduct';
+import { LandingPage1 } from './assets/components/common/LandingPage1';
 
 function App() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -36,7 +39,10 @@ function App() {
       <Routes>
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/' element={<LandingPage />} />
+        {/* <Route path='*' element={<LandingPage />} /> */}
+        <Route path='*' element={<LandingPage1 />} />
+
+
         <Route path='resetpassword/:token' element={<ResetPassword />} />
 
         <Route element={<PrivateRoutes />}>
@@ -44,6 +50,8 @@ function App() {
             <Route path='addproduct' element={<AddProduct />} />
             <Route path='addproductwithfile' element={<AddProductWithFile />} />
             <Route path='viewproduct' element={<ViewProduct />} />
+            <Route path='updateproduct/:id' element={<UpdateProduct />} />
+            <Route path='Deleteproduct' element={<DeleteProduct />} />
           </Route>
 
           <Route path='/user' element={<UserSidebar />}>

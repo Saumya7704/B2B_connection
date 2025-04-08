@@ -326,8 +326,8 @@ const LandingPage = () => {
                             {/* <h5><b>Contact Information : </b></h5> <br></br> */}
                             <h5 style={{ color: "gray" }}><b>Contact Information : </b></h5> <br />
                             Email : &nbsp;<a href="mailto:doshisaumya7704@gmail.com" className="text-primary" style={{ position: "absolute" }}>doshisaumya7704@gmail.com</a><br />
-                            <p style={{ position: "absolute", right: "353px" }} >Phone: +91 9409270312</p><br></br>
-                            <br></br> <p style={{ position: "absolute", right: "190px" }}>Address: 123 Wholesale St, Business City, India</p>
+                            <p style={{ position: "absolute", right: "436px" }} >Phone: +91 9409270312</p><br></br>
+                            <br></br> <p style={{ position: "absolute", right: "270px" }}>Address: 123 Wholesale St, Business City, India</p>
                         </div>
                     </div>
                     <div className="text-center mt-3">

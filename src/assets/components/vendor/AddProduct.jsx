@@ -26,19 +26,58 @@ export const AddProduct = () => {
 
 
     const { register, handleSubmit } = useForm()
+    // const submitHandler = async (data) => {
+    //     const formData = new FormData
+    //     formData.append("name", data.name)
+    //     formData.append("vendor_id", localStorage.getItem("id"))
+    //     formData.append("price", parseFloat(data.price))
+    //     formData.append("offerPrice", parseFloat(data.offerPrice))
+    //     formData.append("category_id", data.category_id)
+    //     formData.append("sub_category_id", data.sub_category_id)
+    //     formData.append("image", data.image[0])
+
+    //     if (data.productDetails) { // Check if description is not empty
+    //         formData.append("productDetails", data.productDetails);
+    //     } else {
+    //         console.error("Description is empty. Product not added.");
+    //         return; // Stop the submission
+    //     }
+    //     const res = await axios.post("/product/addwithimage", formData)
+    //     console.log(data)
+    //     console.log(res.data)
+    // }
+
+
     const submitHandler = async (data) => {
-        const formData = new FormData
+        const formData = new FormData()
         formData.append("name", data.name)
         formData.append("vendor_id", localStorage.getItem("id"))
         formData.append("price", parseFloat(data.price))
+        formData.append("offerPrice", parseFloat(data.offerPrice))
         formData.append("category_id", data.category_id)
         formData.append("sub_category_id", data.sub_category_id)
         formData.append("image", data.image[0])
 
-        const res = await axios.post("/product/addwithimage", formData)
-        console.log(data)
-        console.log(res.data)
+        if (data.productDetails) {
+            formData.append("productDetails", data.productDetails)
+        } else {
+            console.error("Description is empty. Product not added.")
+            return
+        }
+
+        try {
+            const res = await axios.post("/product/addwithimage", formData)
+            console.log(data)
+            console.log(res.data)
+
+            // Show success alert
+            alert("Product added successfully!")
+        } catch (error) {
+            console.error("Failed to add product:", error)
+            alert("Failed to add product. Please try again.")
+        }
     }
+
 
 
     return (
@@ -56,6 +95,13 @@ export const AddProduct = () => {
 
                         onInput={(e) => e.target.value = e.target.value.replace(/[^0-9.]/g, '')}
                     />
+                </div>
+                <div className="form-group">
+                    <label>OfferPrice</label>
+                    <input type='Number' {...register("offerPrice")} placeholder='Enter Product Price' className="input-field"
+                        onInput={(e) => e.target.value = e.target.value.replace(/[^0-9.]/g, '')}
+                    />
+
                 </div>
                 <div className="form-group">
                     <label>CATEGORY</label>
@@ -80,7 +126,10 @@ export const AddProduct = () => {
                         }
                     </select>
                 </div>
-
+                <div className="form-group">
+                    <label className="form-label" >Product Description <span className="text-danger">*</span></label>
+                    <textarea {...register("productDetails", { required: true })} className="form-control" placeholder="Enter product description" rows="4" />
+                </div>
                 {/* <div className="form-group">
                     <label>BASE PRICE</label>
                     <input type='number' {...register("price")} placeholder='Enter Base Price' className="input-field"

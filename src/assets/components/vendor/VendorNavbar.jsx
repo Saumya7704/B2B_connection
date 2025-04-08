@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-// import hamburgermenu from "../../assets/images/hamburgermenu.png";
+import hamburgermenu from "../../../assets/img/hamburgermenu.png";
 
-export const VendorNavbar = ({ toggleSidebar }) => {
+export const VendorNavbar = ({ isSidebarOpen, toggleSidebar }) => {
 
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export const VendorNavbar = ({ toggleSidebar }) => {
         navigate('/Login');
     };
     return (
-        <nav className="app-header navbar navbar-expand bg-body">
+        <nav className={`app-header navbar navbar-expand bg-body ${isSidebarOpen ? '' : 'collapsed'}`}>
             {/*begin::Container*/}
             <div className="container-fluid">
                 {/*begin::Start Navbar Links*/}
@@ -22,15 +22,26 @@ export const VendorNavbar = ({ toggleSidebar }) => {
                     <li className="nav-item">
 
                         <a
-                            className="nav-link" data-lte-toggle="sidebar"
+                            className="nav-link btn btn-light" data-lte-toggle="sidebar"
                             href="#"
                             role="button"
+                            style={{
+                                color: "black",
+                                padding: "5px 10px",
+                                border: "1px solid #ccc",
+                                borderRadius: "5px",
+                            }}
+                            onClick={(e) => {
+                                e.preventDefault(); // Prevent any default action
+                                toggleSidebar(); // Call the function
+                            }}
                         >
+                            <img src={hamburgermenu} style={{ height: "25px", width: "25px" }}></img>
                             <i className="bi bi-list" />
                         </a>
                     </li>
                     <li className="nav-item d-none d-md-block">
-                        <a href="#" className="nav-link">
+                        <a href="/LandingPage" className="nav-link">
                             Home
                         </a>
                     </li>

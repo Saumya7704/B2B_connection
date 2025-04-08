@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link, Outlet } from "react-router-dom";
 import { VendorNavbar } from "./vendorNavbar";
 
 export const VendorSidebar = () => {
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+    const toggleSidebar = () => {
+        console.log("toggleSidebar");
+        setSidebarOpen((prev) => !prev);
+    };
     return (
         <>
-            <VendorNavbar></VendorNavbar>
+            <VendorNavbar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}></VendorNavbar>
             <aside
-                className="app-sidebar bg-body-secondary shadow"
+                className={`app-sidebar bg-body-secondary shadow ${isSidebarOpen ? "open" : "d-none"}`}
                 data-bs-theme="dark"
             >
                 <div className="sidebar-brand">
                     {/*begin::Brand Link*/}
                     <a href="./index.html" className="brand-link">
                         {/*begin::Brand Image*/}
-                        {/* <img
-                            src="../../dist/assets/img/AdminLTELogo.png"
-                            alt="AdminLTE Logo"
-                            className="brand-image opacity-75 shadow"
-                        /> */}
+                        <img
+                        // src="../../dist/assets/img/AdminLTELogo.png"
+
+                        />
                         {/*end::Brand Image*/}
                         {/*begin::Brand Text*/}
                         <span className="brand-text fw-light">B2B Connection</span>
@@ -59,6 +64,13 @@ export const VendorSidebar = () => {
                                         <i className="nav-arrow bi bi-chevron-right" />
                                     </p>
                                 </Link>
+                                {/* <Link to="updateproduct" className="nav-link active">
+                                    <i className="nav-icon bi bi-speedometer" />
+                                    <p>
+                                        UPDATE PRODUCT
+                                        <i className="nav-arrow bi bi-chevron-right" />
+                                    </p>
+                                </Link> */}
                                 <ul className="nav nav-treeview">
                                     <li className="nav-item">
                                         <a href="/vendor/viewproduct" className="nav-link active">
