@@ -32,13 +32,13 @@ export const LandingPage1 = () => {
                 <meta name="description" content="" />
                 <meta name="author" content="" />
                 {/* bootstrap css */}
-                <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+                <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" />
                 {/* style css */}
-                <link rel="stylesheet" type="text/css" href="css/style.css" />
+                <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
                 {/* Responsive*/}
                 <link rel="stylesheet" href="css/responsive.css" />
                 {/* fevicon */}
-                <link rel="icon" href="images/fevicon.png" type="image/gif" />
+                <link rel="icon" href="/assets/images/fevicon.png" type="image/gif" />
                 {/* Scrollbar Custom CSS */}
                 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
                 {/* Tweaks for older IEs*/}
@@ -82,27 +82,27 @@ export const LandingPage1 = () => {
                                 style={{ fontSize: 30, cursor: "pointer", color: "#fff" }}
                                 onClick={openNav}
                             >
-                                <img src="images/toggle-icon.png" />
+                                <img src="/assets/images/toggle-icon.png" />
                             </span>
                             <a className="navbar-brand" href="index.html">
-                                <img src="images/logo.png" style={{ position: "absolute", height: "130px", left: "630px" }} />
+                                <img src="/assets/images/logo.png" style={{ position: "absolute", height: "130px", left: "630px" }} />
                             </a>
                             <form className="form-inline ">
                                 <div className="login_text">
                                     <ul>
                                         <li>
                                             <a href="/Login">
-                                                <img src="images/user-icon.png" />
+                                                <img src="/assets/images/user-icon.png" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <img src="images/trolly-icon.png" />
+                                                <img src="/assets/images/trolly-icon.png" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <img src="images/search-icon.png" />
+                                                <img src="/assets/images/search-icon.png" />
                                             </a>
                                         </li>
                                     </ul>
@@ -121,7 +121,32 @@ export const LandingPage1 = () => {
                                     <div className="row border_1">
                                         <div className="col-md-4">
                                             <div className="image_1">
-                                                <img src="images/img-1.png" style={{ width: "100%" }} />
+                                                <img src="/assets/images/img-1.png" style={{ width: "100%" }} />
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4" style={{ position: "absolute", left: "560px" }}>
+                                            <h1 className="banner_taital">Big Sale Offer</h1>
+                                            <div className="buynow_bt active">
+                                                <a href="#">Buy Now</a>
+                                            </div>
+                                            <div className="contact_bt">
+                                                <a href="/user/Contact">Contact Us</a>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-4">
+                                            <div className="image_2">
+                                                {/* <img src="images/img-2.png" style={{ width: "100%" }} /> */}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="carousel-item">
+                                <div className="container">
+                                    <div className="row border_1">
+                                        <div className="col-md-4">
+                                            <div className="image_1">
+                                                <img src="/assets/images/img-1.png" style={{ width: "100%" }} />
                                             </div>
                                         </div>
                                         <div className="col-md-4" style={{ position: "absolute", left: "560px" }}>
@@ -146,32 +171,7 @@ export const LandingPage1 = () => {
                                     <div className="row border_1">
                                         <div className="col-md-4">
                                             <div className="image_1">
-                                                <img src="images/img-1.png" style={{ width: "100%" }} />
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4" style={{ position: "absolute", left: "560px" }}>
-                                            <h1 className="banner_taital">Big Sale Offer</h1>
-                                            <div className="buynow_bt active">
-                                                <a href="#">Buy Now</a>
-                                            </div>
-                                            <div className="contact_bt">
-                                                <a href="contact.html">Contact Us</a>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4">
-                                            <div className="image_2">
-                                                {/* <img src="images/img-2.png" style={{ width: "100%" }} /> */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <div className="container">
-                                    <div className="row border_1">
-                                        <div className="col-md-4">
-                                            <div className="image_1">
-                                                <img src="images/img-1.png" style={{ width: "100%" }} />
+                                                <img src="/assets/images/img-1.png" style={{ width: "100%" }} />
                                             </div>
                                         </div>
                                         <div className="col-md-4" style={{ position: "absolute", left: "550px" }}>
@@ -246,7 +246,7 @@ export const LandingPage1 = () => {
                                 <div className="box_man">
                                     <h3 className="mobile_text">Mobile</h3>
                                     <div className="mobile_img">
-                                        <img src="images/mobile-img.png" />
+                                        <img src="/assets/images/mobile-img.png" />
                                     </div>
                                     <div className="cart_main">
                                         <div className="cart_bt">
@@ -264,7 +264,7 @@ export const LandingPage1 = () => {
                                 <div className="box_man">
                                     <h3 className="mobile_text">Watch</h3>
                                     <div className="watch_img">
-                                        <img src="images/watch-img.png" />
+                                        <img src="/assets/images/watch-img.png" />
                                     </div>
                                     <div className="cart_main">
                                         <div className="cart_bt">
@@ -282,7 +282,7 @@ export const LandingPage1 = () => {
                                 <div className="box_man">
                                     <h3 className="mobile_text">Camera</h3>
                                     <div className="camera_img">
-                                        <img src="images/camera-img.png" />
+                                        <img src="/assets/images/camera-img.png" />
                                     </div>
                                     <div className="cart_main">
                                         <div className="cart_bt">
@@ -312,7 +312,7 @@ export const LandingPage1 = () => {
                             <div className="row">
                                 <div className="col-md-4">
                                     <div className="computer_img">
-                                        <img src="images/computer-img.png" />
+                                        <img src="/assets/images/computer-img.png" />
                                     </div>
                                     <h4 className="computer_text">COMPUTER</h4>
                                     <div className="computer_text_main">
@@ -330,7 +330,7 @@ export const LandingPage1 = () => {
                                 </div>
                                 <div className="col-md-4">
                                     <div className="computer_img">
-                                        <img src="images/laptop-img.png" />
+                                        <img src="/assets/images/laptop-img.png" />
                                     </div>
                                     <h4 className="computer_text">LAPTOP</h4>
                                     <div className="computer_text_main">
@@ -348,7 +348,7 @@ export const LandingPage1 = () => {
                                 </div>
                                 <div className="col-md-4">
                                     <div className="computer_img">
-                                        <img src="images/mac-img.png" />
+                                        <img src="/assets/images/mac-img.png" />
                                     </div>
                                     <h4 className="computer_text">macOS</h4>
                                     <div className="computer_text_main">
@@ -391,7 +391,7 @@ export const LandingPage1 = () => {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="image_3">
-                                        <img src="images/img-3.png" />
+                                        <img src="/assets/images/img-3.png" />
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +416,7 @@ export const LandingPage1 = () => {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="image_4">
-                                        <img src="images/img-4.png" />
+                                        <img src="/assets/images/img-4.png" />
                                     </div>
                                 </div>
                             </div>
@@ -430,34 +430,34 @@ export const LandingPage1 = () => {
                         <div className="footer_logo_main">
                             <div className="footer_logo">
                                 <a href="index.html">
-                                    <img src="images/logo.png" style={{ position: "absolute", height: "90px" }} />
+                                    <img src="/assets/images/logo.png" style={{ position: "absolute", height: "90px" }} />
                                 </a>
                             </div>
                             <div className="social_icon">
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="images/fb-icon.png" />
+                                            <img src="/assets/images/fb-icon.png" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="images/twitter-icon.png" />
+                                            <img src="/assets/images/twitter-icon.png" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="images/linkedin-icon.png" />
+                                            <img src="/assets/images/linkedin-icon.png" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="images/instagram-icon.png" />
+                                            <img src="/assets/images/instagram-icon.png" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="images/youtub-icon.png" />
+                                            <img src="/assets/images/youtub-icon.png" />
                                         </a>
                                     </li>
                                 </ul>
@@ -498,19 +498,19 @@ export const LandingPage1 = () => {
                                 <div className="col-lg-3 col-sm-6" style={{ marginTop: "30px", left: "310px" }}>
                                     <h4 className="adderss_text">Contact</h4>
                                     <div className="call_text">
-                                        <img src="images/map-icon.png" />
+                                        <img src="/assets/images/map-icon.png" />
                                         <span className="paddlin_left_0">
                                             <a href="#">London 145 United Kingdom</a>
                                         </span>
                                     </div>
                                     <div className="call_text">
-                                        <img src="images/call-icon.png" />
+                                        <img src="/assets/images/call-icon.png" />
                                         <span className="paddlin_left_0">
                                             <a href="#">+91 9409270312</a>
                                         </span>
                                     </div>
                                     <div className="call_text">
-                                        <img src="images/mail-icon.png" />
+                                        <img src="/assets/images/mail-icon.png" />
                                         <span className="paddlin_left_0">
                                             <a href="#">b2b@gmail.com</a>
                                         </span>

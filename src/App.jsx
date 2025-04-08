@@ -19,6 +19,7 @@ import ViewProduct from './assets/components/vendor/ViewProduct';
 import UpdateProduct from './assets/components/vendor/UpdateProduct';
 import DeleteProduct from './assets/components/vendor/DeleteProduct';
 import { LandingPage1 } from './assets/components/common/LandingPage1';
+import { Contact } from './assets/components/user/Contact';
 
 function App() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -43,6 +44,7 @@ function App() {
         <Route path='*' element={<LandingPage1 />} />
 
 
+
         <Route path='resetpassword/:token' element={<ResetPassword />} />
 
         <Route element={<PrivateRoutes />}>
@@ -54,10 +56,15 @@ function App() {
             <Route path='Deleteproduct' element={<DeleteProduct />} />
           </Route>
 
+
+
+
           <Route path='/user' element={<UserSidebar />}>
+            <Route path='Contact' element={<Contact />} />
           </Route>
         </Route>
       </Routes>
+
     </div>
   );
 }
