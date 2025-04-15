@@ -7,7 +7,7 @@ import "./assets/css/adminlte.min.css";
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { UserSidebar } from './assets/components/layout/UserSidebar';
 import { Signup } from './assets/components/common/signup';
-import { Login } from './assets/components/common/login';
+import { Login } from './assets/components/common/Login';
 import axios from 'axios';
 import { VendorSidebar } from './assets/components/vendor/vendorSidebar';
 import { AddProduct } from './assets/components/vendor/AddProduct';
@@ -20,6 +20,9 @@ import UpdateProduct from './assets/components/vendor/UpdateProduct';
 import DeleteProduct from './assets/components/vendor/DeleteProduct';
 import { LandingPage1 } from './assets/components/common/LandingPage1';
 import { Contact } from './assets/components/user/Contact';
+import { Products } from './assets/components/user/Products';
+import { CartViewStep } from './assets/components/user/CartViewStep';
+import ProductDetails from './assets/components/user/ProductDetails';
 
 function App() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -41,7 +44,7 @@ function App() {
         <Route path='/Signup' element={<Signup />} />
         <Route path='/Login' element={<Login />} />
         {/* <Route path='*' element={<LandingPage />} /> */}
-        <Route path='*' element={<LandingPage1 />} />
+
 
 
 
@@ -56,11 +59,16 @@ function App() {
             <Route path='Deleteproduct' element={<DeleteProduct />} />
           </Route>
 
-
+          <Route path="products/:id" element={<ProductDetails />} />
 
 
           <Route path='/user' element={<UserSidebar />}>
+            <Route path='homepage' element={<LandingPage1 />} />
             <Route path='Contact' element={<Contact />} />
+            <Route path="products" element={<Products />} />
+            <Route path="cartview" element={<CartViewStep />} />
+
+
           </Route>
         </Route>
       </Routes>

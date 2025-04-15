@@ -1,32 +1,47 @@
-import React from 'react'
+// import { Button } from 'bootstrap'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+// import { addToCart } from '../redux/CartSlice'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../../../redux/CartSlice';
 
+export const Products = () => {
+    const Navigate = useNavigate()
+    const [products, setProducts] = useState([]);
+    const dispatch = useDispatch()
 
+    useEffect(() => {
+        axios.get('/product/getAllProducts') // Adjust endpoint as needed
+            .then(res => {
+                setProducts(res.data.data); // Access the 'data' array from the backend
+            })
+            .catch(err => {
+                console.error("Error fetching products:", err);
+            });
+    }, []);
 
-
-export const Contact = () => {
     return (
-
-        <>
+        <div>
             {/* basic */}
             <meta charSet="utf-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
             {/* mobile metas */}
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
             {/* site metas */}
-            <title>Contact</title>
+            <title>cla</title>
             <meta name="keywords" content="" />
             <meta name="description" content="" />
             <meta name="author" content="" />
             {/* bootstrap css */}
-            <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
             {/* style css */}
-            <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+            <link rel="stylesheet" href="/assets/css/style.css" />
             {/* Responsive*/}
             <link rel="stylesheet" href="/assets/css/responsive.css" />
             {/* fevicon */}
-            <link rel="icon" href="assets/images/fevicon.png" type="/assets/image/gif" />
+            <link rel="icon" href="/assets/images/fevicon.png" type="image/gif" />
             {/* Scrollbar Custom CSS */}
             <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
             {/* Tweaks for older IEs*/}
@@ -34,99 +49,88 @@ export const Contact = () => {
                 rel="stylesheet"
                 href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
             />
-            {/* fonts */}
-            <link
-                href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
-                rel="stylesheet"
-            />
-            {/* owl stylesheets */}
-            <link rel="stylesheet" href="css/owl.carousel.min.css" />
-            <link rel="stylesheet" href="css/owl.theme.default.min.css" />
             <link
                 rel="stylesheet"
                 href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
                 media="screen"
             />
-            <link
-                href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css"
-                rel="stylesheet"
-                type="text/css"
-            />
-            {/* header section start */}
-            <div className="header_section haeder_main">
-                <div className="container-fluid">
-                    <nav className="navbar navbar-light bg-light justify-content-between">
-                        <div id="mySidenav" className="sidenav">
-                            <a
-                                href="javascript:void(0)"
-                                className="closebtn"
-                                onclick="closeNav()"
-                            >
-                                ×
-                            </a>
-                            <a href="index.html">Home</a>
-                            <a href="computers.html">Computers</a>
-                            <a href="mans_clothes.html">Mans Clothes</a>
-                            <a href="womans_clothes.html">Womans Clothes</a>
-                            <a href="Contact.html">Contact</a>
-                        </div>
-                        <span
-                            style={{ fontSize: 30, cursor: "pointer", color: "#fff" }}
-                            onclick="openNav()"
-                        >
-                            {/* <img src="/assets/images/toggle-icon.png" /> */}
-                        </span>
-                        <a className="navbar-brand" href="index.html">
-                            <img src="/assets/images/logo.png" style={{ position: "absolute", height: "150px", left: "610px" }} />
-                        </a>
-                        <form className="form-inline ">
 
-                        </form>
-                    </nav>
-                </div>
-            </div>
-            {/* header section end */}
-            {/* contact section start */}
-            <div className="contact_section layout_padding">
+
+            <div className="our-brand-section">
                 <div className="container">
-                    <h1 className="contact_taital" style={{ position: "relative", top: "80px" }} >Contact Us</h1><br></br>
-                    <div className="contact_section_2">
-                        <div className="mail_section_1">
-                            <input
-                                type="text"
-                                className="mail_text"
-                                placeholder="Name"
-                                name="text"
-                            />
-                            <input
-                                type="text"
-                                className="mail_text"
-                                placeholder="Email"
-                                name="text"
-                            />
-                            <input
-                                type="text"
-                                className="mail_text"
-                                placeholder="Phone Number"
-                                name="text"
-                            />
-                            <textarea
-                                className="massage-bt"
-                                placeholder="Massage"
-                                rows={5}
-                                id="comment"
-                                name="Massage"
-                                defaultValue={""}
-                            />
-                            <div className="send_bt">
-                                <a href="#">Send</a>
-                            </div>
-                        </div>
+                    <div className="title-wrapper">
+                        <h2>Our Products</h2>
                     </div>
+
+                    <div className="row product-grid">
+                        {products.map((product) => (
+
+                            <div
+                                className="col-md-4 col-lg-4 col-sm-6 mb-4"
+                                key={product._id}
+                                onClick={() => Navigate(`/products/${product._id}`)}
+                                style={{ cursor: 'pointer' }}
+
+                            >
+
+                                <div className="product-card">
+                                    <img
+                                        src={product.productImageURL1}
+                                        alt={product.name}
+                                        className="img-fluid"
+                                    />
+                                    {/* Flex container for name and price */}
+                                    <div className="product-info d-flex justify-content-between align-items-start mt-2">
+                                        {/* Product name on the left */}
+                                        <p className="product-name mb-0">{product.name}</p>
+
+                                        {/* Prices on the right */}
+                                        <div className="text-end">
+                                            {product.offerPrice !== undefined &&
+                                                product.offerPrice !== null &&
+                                                product.offerPrice !== product.price ? (
+                                                <>
+                                                    <p className="mb-0" style={{ textDecoration: 'line-through', color: 'gray' }}>
+                                                        Price: ${product.price}
+                                                    </p>
+                                                    <p className="mb-0 text-danger fw-bold">OfferPrice: ${product.offerPrice}</p>
+                                                </>
+                                            ) : (
+                                                <p className="mb-0 fw-bold">Price: ${product.price}</p>
+                                            )}
+                                        </div>
+                                    </div>
+
+
+                                    {/* Stars and button */}
+                                    <div className="stars mt-2">⭐⭐⭐⭐☆</div>
+                                    <div className="add-to-cart mt-2">
+                                        <button
+                                            onClick={() => {
+                                                dispatch(
+                                                    addToCart({
+                                                        id: product._id,
+                                                        name: product.name,
+                                                        price: product.price,
+                                                        offerPrice: product.offerPrice,
+                                                        categoryId: product.categoryId,
+                                                        subCategoryId: product.subCategoryId,
+                                                        productDetails: product.productDetails,
+                                                    }));
+                                            }}>Add to cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-4">
+                        <a href="#" className="see-more-btn">See More</a>
+                    </div>
+
                 </div>
             </div>
-            {/* contact section end */}
-            {/* footer section start */}
+            {/*  footer */}
             <div className="footer_section layout_padding margin_top_90">
                 <div className="container">
                     <div className="footer_logo_main">
@@ -222,22 +226,6 @@ export const Contact = () => {
                     </div>
                 </div>
             </div>
-            {/* footer section end */}
-            {/* copyright section start */}
-            <div className="copyright_section">
-                <div className="container">
-                    <p className="copyright_text">
-                        2025 B2B Wholesale Market Portal. All Rights Reserved.
-                    </p>
-                </div>
-            </div>
-            {/* copyright section end */}
-            {/* Javascript files*/}
-            {/* sidebar */}
-            {/* javascript */}
-
-
-        </>
-
+        </div>
     )
 }

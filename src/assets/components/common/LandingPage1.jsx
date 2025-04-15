@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../redux/CartSlice';
 
 // import "../../css/bootstrap.min.css"
 // import "../../css/style.css"
@@ -8,6 +10,9 @@ import React from 'react'
 // import "../../css/owl.theme.default.min.css"
 
 export const LandingPage1 = () => {
+    const dispatch = useDispatch()
+
+
     const openNav = () => {
         document.getElementById("mySidenav").style.width = "250px";
     };
@@ -88,25 +93,7 @@ export const LandingPage1 = () => {
                                 <img src="/assets/images/logo.png" style={{ position: "absolute", height: "130px", left: "630px" }} />
                             </a>
                             <form className="form-inline ">
-                                <div className="login_text">
-                                    <ul>
-                                        <li>
-                                            <a href="/Login">
-                                                <img src="/assets/images/user-icon.png" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="/assets/images/trolly-icon.png" />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img src="/assets/images/search-icon.png" />
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+
                             </form>
                         </nav>
                     </div>
@@ -244,15 +231,15 @@ export const LandingPage1 = () => {
                         <div className="row">
                             <div className="col-md-4">
                                 <div className="box_man">
-                                    <h3 className="mobile_text">Mobile</h3>
+                                    <h3 className="mobile_text">Women's Jeans</h3>
                                     <div className="mobile_img">
-                                        <img src="/assets/images/mobile-img.png" />
+                                        <img src="/assets/images/female jeans.webp" />
                                     </div>
                                     <div className="cart_main">
                                         <div className="cart_bt">
-                                            <a href="#">Add To Cart</a>
+                                            <button onClick={() => { dispatch(addToCart({ id: 1, name: "mobile", price: 1000 })) }}>Add to cart</button>
                                         </div>
-                                        <h4 className="samsung_text">Samsung</h4>
+                                        <h4 className="samsung_text">s</h4>
                                         <h6 className="rate_text">
                                             <a href="#">$500</a>
                                         </h6>
@@ -262,15 +249,15 @@ export const LandingPage1 = () => {
                             </div>
                             <div className="col-md-4">
                                 <div className="box_man">
-                                    <h3 className="mobile_text">Watch</h3>
+                                    <h3 className="mobile_text">Kurta</h3>
                                     <div className="watch_img">
-                                        <img src="/assets/images/watch-img.png" />
+                                        <img src="/assets/images/kurta.png" />
                                     </div>
                                     <div className="cart_main">
                                         <div className="cart_bt">
                                             <a href="#">Add To Cart</a>
                                         </div>
-                                        <h4 className="samsung_text">Samsung</h4>
+                                        <h4 className="samsung_text">m</h4>
                                         <h6 className="rate_text">
                                             <a href="#">$500</a>
                                         </h6>
@@ -280,15 +267,15 @@ export const LandingPage1 = () => {
                             </div>
                             <div className="col-md-4">
                                 <div className="box_man">
-                                    <h3 className="mobile_text">Camera</h3>
+                                    <h3 className="mobile_text">Children's Wear</h3>
                                     <div className="camera_img">
-                                        <img src="/assets/images/camera-img.png" />
+                                        <img src="/assets/images/child_wear-removebg-preview.png" />
                                     </div>
                                     <div className="cart_main">
                                         <div className="cart_bt">
                                             <a href="#">Add To Cart</a>
                                         </div>
-                                        <h4 className="samsung_text">Samsung</h4>
+                                        <h4 className="samsung_text">S</h4>
                                         <h6 className="rate_text">
                                             <a href="#">$500</a>
                                         </h6>
