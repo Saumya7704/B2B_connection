@@ -23,6 +23,10 @@ import { Contact } from './assets/components/user/Contact';
 import { Products } from './assets/components/user/Products';
 import { CartViewStep } from './assets/components/user/CartViewStep';
 import ProductDetails from './assets/components/user/ProductDetails';
+import { ConfirmationStep } from './assets/components/user/ConfirmationStep';
+import { ShippingStep } from './assets/components/user/ShippingStep';
+import { Checkout } from './assets/components/user/Checkout';
+import { AdminOrders } from './assets/components/admin/AdminOrders';
 
 function App() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -51,6 +55,9 @@ function App() {
         <Route path='resetpassword/:token' element={<ResetPassword />} />
 
         <Route element={<PrivateRoutes />}>
+
+          <Route path="/admin/orders" element={<AdminOrders />} />
+
           <Route path='/vendor' element={<VendorSidebar />}>
             <Route path='addproduct' element={<AddProduct />} />
             <Route path='addproductwithfile' element={<AddProductWithFile />} />
@@ -67,6 +74,10 @@ function App() {
             <Route path='Contact' element={<Contact />} />
             <Route path="products" element={<Products />} />
             <Route path="cartview" element={<CartViewStep />} />
+
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="shippingstep" element={<ShippingStep />} />
+            <Route path="confirmationstep" element={<ConfirmationStep />} />
 
 
           </Route>

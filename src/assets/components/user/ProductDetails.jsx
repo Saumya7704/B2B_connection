@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/CartSlice";
-import "../../assets/css/ProductDetails.css"; // optional: move styles here
-
+import "../../css/ProductDeatils.css"
 
 export const ProductDetails = () => {
     const { id } = useParams();
@@ -28,7 +27,7 @@ export const ProductDetails = () => {
         <div className="product-details-container">
             <div className="product-details-content">
                 <div className="product-image">
-                    <img src={product.productImageURL} alt={product.name} />
+                    <img src={product.productImageURL1} alt={product.name} />
                 </div>
                 <div className="product-info">
                     <h1>{product.name}</h1>

@@ -54,7 +54,7 @@ export const UserNavbar = () => {
                         </a>
                     </li>
                     <li className="nav-item d-none d-md-block">
-                        <a href="products" className="nav-link">
+                        <a href="/user/products" className="nav-link">
                             Proucts
                         </a>
                     </li>
